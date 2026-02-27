@@ -1,0 +1,170 @@
+:root {
+  --glass: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.15);
+  --accent-1: #ff3cac;
+  --accent-2: #784ba0;
+  --accent-3: #2b86c5;
+}
+
+body {
+  background: #0a0a0c;
+  color: #ffffff;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- Animated Mesh Gradient Background --- */
+.mesh-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background:
+    radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
+    radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 1) 0, transparent 50%),
+    radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 1) 0, transparent 50%);
+  filter: blur(100px);
+  opacity: 0.6;
+}
+
+/* --- Glass Container --- */
+.glass-card {
+  background: var(--glass);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid var(--glass-border);
+  border-radius: 40px;
+  padding: 50px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  width: 95%;
+  max-width: 1200px;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* --- Typography --- */
+h1 {
+  font-family: "Syne", sans-serif;
+  font-size: 3.5rem;
+  background: linear-gradient(90deg, #fff, #888);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -2px;
+}
+
+.section-tag {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: var(--accent-3);
+  font-weight: 800;
+}
+
+/* --- Custom Complex UI Elements --- */
+.input-box {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  padding: 30px;
+  transition: 0.3s;
+}
+
+.input-box:focus-within {
+  border-color: var(--accent-1);
+  box-shadow: 0 0 30px rgba(255, 60, 172, 0.2);
+}
+
+textarea {
+  background: transparent;
+  border: none;
+  color: white;
+  width: 100%;
+  height: 180px;
+  outline: none;
+  font-size: 1.1rem;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+/* Vibrant Button */
+.btn-vibrant {
+  background: linear-gradient(
+    45deg,
+    var(--accent-1),
+    var(--accent-2),
+    var(--accent-3)
+  );
+  background-size: 200% 200%;
+  border: none;
+  border-radius: 50px;
+  color: white;
+  padding: 18px 40px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: 0.5s;
+  animation: gradientMove 5s infinite;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.btn-vibrant:hover {
+  transform: scale(1.05) translateY(-3px);
+  box-shadow: 0 20px 40px rgba(120, 75, 160, 0.4);
+}
+
+/* Results Display */
+#resultsSection {
+  display: none;
+}
+
+.stat-ring {
+  border: 8px solid rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: auto;
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-family: "Syne", sans-serif;
+}
+
+.insight-pill {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 25px;
+  border-radius: 30px;
+  height: 100%;
+  border: 1px solid var(--glass-border);
+}
+
+/* Heatmap Tag styling */
+.heatmap-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  margin: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-left: 3px solid var(--accent-1);
+}
